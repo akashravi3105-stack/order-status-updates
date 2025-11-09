@@ -21,7 +21,7 @@ export default function MenuItemCard({ item, onAddToCart }: MenuItemCardProps) {
       'chinese': 'Chinese',
       'continental': 'Continental',
       'beverages': 'Beverage',
-      'snacks': 'Snack',
+      'snacks': 'Snack'
     };
     return labels[cuisine] || cuisine;
   };
@@ -33,34 +33,34 @@ export default function MenuItemCard({ item, onAddToCart }: MenuItemCardProps) {
           src={item.image}
           alt={item.name}
           fill
-          className="object-cover"
-        />
-        {!item.available && (
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+          className="object-cover" />
+
+        {!item.available &&
+        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
             <Badge variant="destructive">Not Available</Badge>
           </div>
-        )}
+        }
         <div className="absolute top-2 right-2 flex gap-1">
-          {item.isVeg ? (
-            <Badge className="bg-green-500 hover:bg-green-600">
+          {item.isVeg ?
+          <Badge className="bg-green-500 hover:bg-green-600">
               <Leaf className="h-3 w-3 mr-1" />
               Veg
-            </Badge>
-          ) : (
-            <Badge className="bg-red-500 hover:bg-red-600">
+            </Badge> :
+
+          <Badge className="bg-red-500 hover:bg-red-600">
               Non-Veg
             </Badge>
-          )}
-          {item.isSpicy && (
-            <Badge variant="destructive">
+          }
+          {item.isSpicy &&
+          <Badge variant="destructive">
               <Flame className="h-3 w-3" />
             </Badge>
-          )}
+          }
         </div>
       </div>
       <CardContent className="p-4">
         <div className="flex items-start justify-between mb-2">
-          <h3 className="font-semibold text-lg">{item.name}</h3>
+          <h3 className="font-semibold text-lg !w-[33%] !h-full">{item.name}</h3>
         </div>
         <div className="flex gap-2 mb-2">
           <Badge variant="secondary" className="text-xs">
@@ -87,12 +87,12 @@ export default function MenuItemCard({ item, onAddToCart }: MenuItemCardProps) {
         <Button
           className="w-full"
           onClick={() => onAddToCart(item)}
-          disabled={!item.available}
-        >
+          disabled={!item.available}>
+
           <Plus className="h-4 w-4 mr-2" />
           Add to Cart
         </Button>
       </CardFooter>
-    </Card>
-  );
+    </Card>);
+
 }
